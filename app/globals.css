@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+    
+    /* Notion-like semantic colors - matched to Notion's exact values */
+    --sidebar-bg: 45 20% 97%; /* #F7F6F3 */
+    --row-hover: 0 0% 94.5%; /* #F1F1EF */
+    --row-active: 0 0% 91.4%; /* #E9E9E6 */
+    --divider: 0 0% 89.2%; /* #E4E4E1 */
+    --text-muted: 0 0% 46.7%; /* #787774 */
+    --text-primary: 0 0% 21.6%; /* #37352F */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    /* Notion-like system font stack */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    /* Optimize text rendering for clarity */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer utilities {
+  /* Subtle scrollbar styling for sidebar */
+  .sidebar-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .sidebar-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .sidebar-scroll::-webkit-scrollbar-thumb {
+    background: hsl(var(--sidebar-divider));
+    border-radius: 4px;
+  }
+  
+  .sidebar-scroll::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--text-muted));
+  }
+
+  /* Hide scrollbar for card row */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Editor text selection styles */
+@layer components {
+  /* Ensure text is selectable in editor content areas */
+  [contenteditable="true"] {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  /* Textarea elements should also be selectable */
+  textarea {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  /* Selection highlight color matching Notion */
+  [contenteditable="true"]::selection,
+  textarea::selection {
+    background: rgba(35, 131, 226, 0.28);
+  }
+
+  [contenteditable="true"]::-moz-selection,
+  textarea::-moz-selection {
+    background: rgba(35, 131, 226, 0.28);
+  }
+}
