@@ -167,7 +167,7 @@ export const SlashMenu = forwardRef<HTMLDivElement, SlashMenuProps>(function Sla
 }, ref) {
   const listRef = useRef<HTMLDivElement>(null)
   const activeItemRef = useRef<HTMLButtonElement>(null)
-  const menuContainerRef = useRef<HTMLDivElement>(null)
+  const menuContainerRef = useRef<HTMLDivElement | null>(null)
   const [position, setPosition] = useState({ top: 0, left: 0 })
   const [computedAnchorRect, setComputedAnchorRect] = useState<DOMRect | null>(initialAnchorRect)
 
