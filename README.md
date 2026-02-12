@@ -53,25 +53,6 @@ The implementation focuses on matching Notion's visual design, interaction patte
 - **clsx** - Conditional className utility
 - **tailwind-merge** - Merge Tailwind classes intelligently
 
-## AI Tools & Automation Used
-
-### Development Tools
-- **Cursor AI** - Primary development assistant for code generation, refactoring, and debugging
-- **ChatGPT/Claude** - Architecture decisions, complex logic implementation, and problem-solving assistance
-
-### Workflow Efficiency Techniques
-1. **Component Scaffolding**: Used AI to generate initial component structure and boilerplate code, reducing setup time by ~70%
-2. **Type Generation**: Automated TypeScript type definitions from data models and interfaces
-3. **Code Refactoring**: Leveraged AI to restructure code for better organization and maintainability
-4. **Bug Fixing**: Used AI to quickly identify and fix edge cases (e.g., mark adjustment logic, selection preservation)
-5. **Algorithm Implementation**: AI-assisted implementation of complex algorithms (e.g., mark range adjustment, text edit application to marks)
-6. **Documentation**: AI-assisted README and code comments generation
-
-### Time-Saving Examples
-- **Mark System Implementation**: Used AI to generate the complete mark adjustment logic (`applyTextEditToMarks`) in ~15 minutes vs ~2 hours manually
-- **Rich Text Rendering**: AI-generated the `renderMarkedText` function with proper mark nesting in ~20 minutes vs ~1.5 hours manually
-- **Selection Preservation**: AI-assisted implementation of selection restoration logic with proper timing using `requestAnimationFrame`
-
 ## Project Structure
 
 ```
@@ -169,26 +150,18 @@ npm start
 
 ### Automation & Tooling Used
 
-1. **AI-Assisted Development**: Leveraged Cursor AI and ChatGPT/Claude extensively for:
-   - Generating complex algorithms (mark range adjustment, text edit application)
-   - Implementing rich text rendering with proper mark nesting
-   - Debugging and fixing edge cases (selection preservation, mark normalization)
-   - Code refactoring and optimization
-   - Estimated time savings: ~60-70% on complex logic implementation
+1. **shadcn/ui Component Library**: Instead of building dropdown menus, buttons, and tooltips from scratch, leveraged shadcn/ui which provides production-ready, accessible components built on Radix UI. This significantly reduced development time while ensuring accessibility and consistent styling.
 
-2. **shadcn/ui Component Library**: Instead of building dropdown menus, buttons, and tooltips from scratch, leveraged shadcn/ui which provides production-ready, accessible components built on Radix UI. This significantly reduced development time while ensuring accessibility and consistent styling.
+2. **Tailwind CSS Utility Classes**: Used Tailwind's utility-first approach to rapidly style components without writing custom CSS. The configuration includes custom color variables matching Notion's design system exactly, allowing for quick theme adjustments and pixel-perfect replication.
 
-3. **Tailwind CSS Utility Classes**: Used Tailwind's utility-first approach to rapidly style components without writing custom CSS. The configuration includes custom color variables matching Notion's design system exactly, allowing for quick theme adjustments and pixel-perfect replication.
+3. **TypeScript for Type Safety**: Implemented TypeScript throughout to catch errors early and improve developer experience, reducing debugging time. AI-assisted type generation from data models saved significant time.
 
-4. **TypeScript for Type Safety**: Implemented TypeScript throughout to catch errors early and improve developer experience, reducing debugging time. AI-assisted type generation from data models saved significant time.
+4. **Component Architecture**: Organized components into logical folders (`layout/`, `editor/`, `ui/`) following Next.js 14 App Router conventions, making the codebase easily navigable and maintainable.
 
-5. **Component Architecture**: Organized components into logical folders (`layout/`, `editor/`, `ui/`) following Next.js 14 App Router conventions, making the codebase easily navigable and maintainable.
-
-6. **Lucide Icons**: Used Lucide React icon library for consistent, beautiful icons that match modern design standards, avoiding the need to create or source individual icon SVGs.
+5. **Lucide Icons**: Used Lucide React icon library for consistent, beautiful icons that match modern design standards, avoiding the need to create or source individual icon SVGs.
 
 ### Development Approach
 
-- **AI-First Rapid Prototyping**: Started with AI-generated component scaffolds, then iteratively refined with AI assistance for complex logic
 - **Component Reusability**: Created reusable UI components (Button, DropdownMenu, Tooltip, etc.) that can be used throughout the application
 - **Modern React Patterns**: Utilized React hooks (useState, useRef, useCallback, useEffect) and client components where interactivity was needed
 - **Accessibility First**: All components built on Radix UI primitives ensure keyboard navigation and screen reader support out of the box
