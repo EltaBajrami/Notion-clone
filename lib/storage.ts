@@ -74,9 +74,11 @@ function sanitizePageNode(node: any): PageNode | null {
     return null
   }
 
+  // Start with required fields including doc (will be set below)
   const sanitized: PageNode = {
     id: String(node.id),
     title: String(node.title),
+    doc: createDefaultDocument(), // Initialize with default, will be overwritten if valid
   }
 
   if (node.icon !== undefined) {
@@ -139,10 +141,8 @@ function sanitizePageNode(node: any): PageNode | null {
         return sanitizedBlock
       }),
     }
-  } else {
-    // If doc is missing or invalid, attach default
-    sanitized.doc = createDefaultDocument()
   }
+  // If doc is missing or invalid, the default from initialization is kept
 
   if (Array.isArray(node.children)) {
     const sanitizedChildren = node.children
@@ -233,7 +233,7 @@ export function loadSidebarState(): SidebarState {
           pages: Array.isArray(parsed.pages)
             ? parsed.pages
                 .map(sanitizePageNode)
-                .filter((p): p is PageNode => p !== null)
+                .filter((p: PageNode | null): p is PageNode => p !== null)
             : getInitialSidebarData(),
           expandedIds: Array.isArray(parsed.expandedIds)
             ? parsed.expandedIds.filter((id: any) => typeof id === "string")

@@ -52,6 +52,7 @@ export function AppLayout() {
       selectedPageId,
       renamingId: null,
       isHydrated: true,
+      shouldFocusTitle: false,
     })
   }, [])
 

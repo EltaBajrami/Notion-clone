@@ -171,13 +171,13 @@ export function PageRow({
       )}
       onClick={handleRowClick}
       onKeyDown={handleKeyDown}
+      suppressHydrationWarning
+      {...attributes}
+      {...listeners}
       tabIndex={0}
       role="button"
       aria-label={getDisplayTitle(page.title)}
       aria-pressed={isActive}
-      suppressHydrationWarning
-      {...attributes}
-      {...listeners}
     >
       {/* Nesting indicator - shows when item is being dragged over this row */}
       {isValidNestingTarget && !isDragging && (

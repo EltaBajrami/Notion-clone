@@ -50,6 +50,7 @@ export function HomeLayout() {
       selectedPageId,
       renamingId: null,
       isHydrated: true,
+      shouldFocusTitle: false,
     })
   }, [])
 

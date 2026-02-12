@@ -455,7 +455,7 @@ function BlockRow({
   const [isHovered, setIsHovered] = useState(false)
   const [isGutterHovered, setIsGutterHovered] = useState(false)
   const [localContent, setLocalContent] = useState(block.content)
-  const contentRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement | null>(null)
   
   // Show gutter controls if block OR gutter is hovered
   const showGutterControls = isHovered || isGutterHovered

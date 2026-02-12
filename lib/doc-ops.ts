@@ -237,26 +237,32 @@ export function convertBlockType(doc: Doc, blockId: string, newType: BlockType):
         return block
       }
       
-      const updatedBlock: Block = {
-        ...block,
-        type: newType,
-      }
-      
       // Initialize checked for todo blocks (always set to false if converting to todo)
       if (newType === "todo") {
-        updatedBlock.checked = false
-      } else {
-        // Remove checked for non-todo blocks
-        const { checked, ...rest } = updatedBlock
-        return rest
+        return {
+          ...block,
+          type: newType,
+          checked: false,
+        }
       }
       
       // Divider blocks should have empty text
       if (newType === "divider") {
-        updatedBlock.text = ""
+        // Remove checked if it exists
+        const { checked, ...rest } = block
+        return {
+          ...rest,
+          type: newType,
+          text: "",
+        }
       }
       
-      return updatedBlock
+      // For other block types, remove checked if it exists
+      const { checked, ...rest } = block
+      return {
+        ...rest,
+        type: newType,
+      }
     }),
   }
 }
