@@ -444,7 +444,8 @@ export function RichTextBlock({
           activeElement?.closest('[class*="SelectionToolbar"]') !== null
         if (
           activeElement !== textareaRef.current &&
-          !isToolbarClick
+          !isToolbarClick &&
+          textareaRef.current
         ) {
           onSelectionChange(textareaRef.current)
         }
